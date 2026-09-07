@@ -10,12 +10,7 @@ public:
         int l=0,r=n-1;
         while(l<r)
         {
-            while(arr[l]!=arr[r])
-            {
-                arr[l]++;
-                arr[r]--;
-                op++;
-            }
+            op+=(arr[r]-arr[l])/2;
             l++;
             r--;
         }
