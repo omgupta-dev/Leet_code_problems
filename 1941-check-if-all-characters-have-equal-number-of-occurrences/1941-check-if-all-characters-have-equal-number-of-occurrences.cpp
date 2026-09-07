@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool areOccurrencesEqual(string s) {
-        map<char,int>m;
+        unordered_map<char,int>m;
         for(int i=0;i<s.size();i++)
         {
             if(!m.contains(s[i]))
@@ -9,7 +9,7 @@ public:
             else
                 m[s[i]]++;
         }
-        map<char,int> :: iterator it=m.begin();
+        unordered_map<char,int> :: iterator it=m.begin();
         int k=it->second;
         while(it!=m.end())
         {
