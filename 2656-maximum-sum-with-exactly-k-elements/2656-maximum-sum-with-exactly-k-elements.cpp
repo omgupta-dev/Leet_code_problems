@@ -1,13 +1,17 @@
 class Solution {
 public:
     int maximizeSum(vector<int>& nums, int k) {
-        sort(nums.begin(),nums.end());
-        reverse(nums.begin(),nums.end());
+        int maxi=nums[0];
+        for(int i=1;i<nums.size();i++)
+        {
+            if(nums[i]>maxi)
+                maxi=nums[i];
+        }
         int ans=0;
         while(k)
         {
-            ans+=nums[0];
-            nums[0]++;
+            ans+=maxi;
+            maxi++;
             k--;
         }
         return ans;
