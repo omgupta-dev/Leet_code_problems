@@ -4,8 +4,8 @@ public:
         int ans=0;
         for(int i=0;i<s.size();i++)
         {
-            int rev=s[i]-'z'-1;
-            ans+=abs(rev)*(i+1);
+            int rev='z'-s[i]+1;
+            ans+=rev*(i+1);
         }
         return ans;
     }
