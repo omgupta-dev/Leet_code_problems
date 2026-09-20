@@ -6,7 +6,7 @@ public:
         {
             for(int j=i+1;j<intervals.size();j++)
             {
-                if(intervals[i][0]<=intervals[j][1] && intervals[j][0]<=intervals[i][1])
+                if(max(intervals[i][0],intervals[j][0])<=min(intervals[i][1],intervals[j][1]))
                     ans++;
             }
         }
