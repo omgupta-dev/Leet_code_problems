@@ -4,18 +4,19 @@ public:
         int ans=0;
         for(int i=0;i<s.size();i++)
         {
-            unordered_map<char,int>m;
+            vector<int>m(26,0);
             for(int j=i;j<s.size();j++)
             {
-                m[s[j]]++;
+                m[s[j]-'a']++;
                 int maxi=0;
                 int mini=s.size();
-                for(auto it : m)
+                for(int k=0;k<26;k++)
                 {
-                    if(maxi<it.second)
-                        maxi=it.second;
-                    if(mini>it.second)
-                        mini=it.second;
+                    if(m[k]>0)
+                    {
+                        maxi=max(maxi,m[k]);
+                        mini=min(mini,m[k]);
+                    }
                 }
                 ans+=(maxi-mini);
             }
