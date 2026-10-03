@@ -1,30 +1,18 @@
 class Solution {
 public:
     vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
-        unordered_map<int,int>m1;
-        unordered_map<int,int>m2;
-        unordered_map<int,int>m3;
-        unordered_map<int,int>m;
+        unordered_set<int>s1(nums1.begin(),nums1.end());
+        unordered_set<int>s2(nums2.begin(),nums2.end());
+        unordered_set<int>s3(nums3.begin(),nums3.end());
         vector<int>ans;
-        for(int i=0;i<nums1.size();i++)
+        vector<int>freq(101,0);
+        for(int i : s1) freq[i]++;
+        for(int i : s2) freq[i]++;
+        for(int i : s3) freq[i]++;
+        for(int i=0;i<freq.size();i++)
         {
-            m[nums1[i]]++;
-            m1[nums1[i]]++;
-        }
-        for(int i=0;i<nums2.size();i++)
-        {
-            m[nums2[i]]++;
-            m2[nums2[i]]++;
-        }
-        for(int i=0;i<nums3.size();i++)
-        {
-            m[nums3[i]]++;
-            m3[nums3[i]]++;
-        }
-        for(auto it : m)
-        {
-            if((m1.contains(it.first) && m2.contains(it.first)) || (m2.contains(it.first) && m3.contains(it.first)) || (m3.contains(it.first) && m1.contains(it.first)))
-                ans.push_back(it.first);
+            if(freq[i]>=2)
+                ans.push_back(i);
         }
         return ans;
     }
