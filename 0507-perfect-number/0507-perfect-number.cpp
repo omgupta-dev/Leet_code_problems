@@ -1,12 +1,8 @@
 class Solution {
 public:
-    bool checkPerfectNumber(int num) {
-        int sum=0;
-        for(int i=1;i<=num/2;i++)
-        {
-            if(num%i==0)
-                sum+=i;
-        }
-        return (sum==num);
+    bool checkPerfectNumber(int n) {
+        if(n == 6 || n == 28 || n == 496 || n == 8128 || n == 33550336)
+            return true;
+        return false;
     }
 };
