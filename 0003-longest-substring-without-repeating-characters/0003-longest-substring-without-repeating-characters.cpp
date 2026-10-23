@@ -8,7 +8,7 @@ public:
         while(end<s.size())
         {
             m[s[end]]++;
-            if(m.size()!=end-start+1)
+            while(m.size()!=end-start+1)
             {
                 m[s[start]]--;
                 if(m[s[start]]==0)
